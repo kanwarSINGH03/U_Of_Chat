@@ -103,6 +103,8 @@ const handleConnect = async (
     const existingConnectionId = await getConnectionIdByNickname(
       queryParameters["nickname"],
     );
+
+    // to not allow duplicate nicknames
     if (
       existingConnectionId &&
       (await postToConnection(
@@ -311,6 +313,21 @@ const getConnectionIdByNickname = async (
       : undefined;
 };
 
+
+const parseGetMessageBody = (body: string | null): GetMessagesBody => {
+    const getMessagesBody = JSON.parse(body || "{}") as GetMessagesBody;
+
+    if (
+      !getMessagesBody ||
+      !getMessagesBody.targetNickname ||
+      !getMessagesBody.limit
+    ) {
+        throw new HandlerError("GetMessageBody format is incorrect");
+    }
+
+    return getMessagesBody;
+};
+
 const handleGetMessages = async (client: Client, body: GetMessagesBody) => {
     const output = await docClient
       .query({
@@ -344,18 +361,4 @@ const handleGetMessages = async (client: Client, body: GetMessagesBody) => {
     );
 
     return responseOK;
-};
-
-const parseGetMessageBody = (body: string | null) => {
-    const getMessagesBody = JSON.parse(body || "{}") as GetMessagesBody;
-
-    if (
-      !getMessagesBody ||
-      !getMessagesBody.targetNickname ||
-      !getMessagesBody.limit
-    ) {
-        throw new HandlerError("invalid GetMessageBody");
-    }
-
-    return getMessagesBody;
 };
