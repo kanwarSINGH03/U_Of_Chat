@@ -22,7 +22,7 @@ frameworkVersion: "3"
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   lambdaHashingVersion: 20201221
 
 # you can overwrite defaults here
@@ -88,7 +88,7 @@ provider:
 
 functions:
   websocketHandler:
-    handler: src/handler.handle
+    handler: src/handlers.handle
     events:
       - websocket:
           route: $connect
