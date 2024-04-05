@@ -99,7 +99,7 @@ export default function Conversation({
                                         ))}
                                     </div>
                                     <img
-                                        src={`cars/${target}.jpeg`}
+                                        src={`cars/${group.sender}.jpeg`}
                                         alt="My profile"
                                         className={`w-6 h-6 rounded-full order-${
                                             group.sender === target ? 1 : 2

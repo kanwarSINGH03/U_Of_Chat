@@ -15,7 +15,7 @@ export default function Sidebar({
                 <div className="flex sm:items-center justify-between py-10 px-5">
                     <div className="flex items-center space-x-2">
                         <img
-                            src={`doggos/${me}.jpeg`}
+                            src={`cars/${me}.jpeg`}
                             alt=""
                             className="w-8 rounded-full"
                         />
@@ -33,7 +33,7 @@ export default function Sidebar({
                                     onClick={() => setTarget(client)}
                                 >
                                     <img
-                                        src={`doggos/${client}.jpeg`}
+                                        src={`cars/${client}.jpeg`}
                                         alt=""
                                         className="w-4 sm:w-8 h-10 sm:h-8 rounded-full"
                                     />
