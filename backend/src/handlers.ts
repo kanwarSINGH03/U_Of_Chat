@@ -48,6 +48,7 @@ export const handle = async (
               connectionId,
               JSON.stringify({ type: "error", message: e.message }),
             );
+            console.log("p")
             return responseOK;
         }
 
