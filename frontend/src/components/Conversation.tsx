@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import "./Conversation.css";
 import {MessageItem} from "../connections/MessageItem";
@@ -45,11 +44,11 @@ export default function Conversation({
     };
 
     return (
-        <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen backdrop-filter backdrop-blur-lg bg-opacity-50 bg-white rounded-lg shadow-lg">
+        <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
             <div className="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
                 <div className="flex items-center space-x-4">
                     <img
-                        src={`/cars/${target}.jpeg`}
+                        src={`cars/${target}.jpeg`}
                         alt=""
                         className="w-10 sm:w-16 h-10 sm:h-16 rounded-full"
                     />
@@ -100,7 +99,7 @@ export default function Conversation({
                                         ))}
                                     </div>
                                     <img
-                                        src={`cars/${group.sender}.jpeg`}
+                                        src={`cars/${target}.jpeg`}
                                         alt="My profile"
                                         className={`w-6 h-6 rounded-full order-${
                                             group.sender === target ? 1 : 2
@@ -146,7 +145,7 @@ export default function Conversation({
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         onKeyPress={(e) => (e.key === "Enter" ? submit() : null)}
-                        className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-full py-3 backdrop-filter backdrop-blur-md bg-opacity-50 bg-white rounded-b-lg"
+                        className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-full py-3"
                     />
                     <div className="absolute right-0 items-center inset-y-0 hidden sm:flex">
                         <button
